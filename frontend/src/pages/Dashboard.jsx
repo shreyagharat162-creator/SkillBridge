@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ function Dashboard() {
         const loadUserAndPosts = async () => {
             try {
                 const userResponse = await fetch(
-                    `http://localhost:8080/api/users/${currentUser.id}`
+                    `${API_URL}/api/users/${currentUser.id}`
                 );
 
                 if (!userResponse.ok) {
@@ -39,7 +40,7 @@ function Dashboard() {
 
                 // Load uploaded skills
                 const postResponse = await fetch(
-                    `http://localhost:8080/api/posts/user/${latestUser.id}`
+                    `${API_URL}/api/posts/user/${latestUser.id}`
                 );
 
                 if (postResponse.ok) {

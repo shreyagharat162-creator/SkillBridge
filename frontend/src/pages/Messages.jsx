@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import API_URL from "../api";
 function Messages() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ function Messages() {
         const loadOtherUser = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:8080/api/users/${id}`
+                   `${API_URL}/api/users/${id}`
                 );
 
                 if (!response.ok) {
@@ -60,7 +60,7 @@ function Messages() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/messages/conversation?userId=${currentUser.id}&otherUserId=${id}`
+                `${API_URL}/api/messages/conversation?userId=${currentUser.id}&otherUserId=${id}`
             );
 
             if (response.status === 403) {
@@ -108,7 +108,7 @@ function Messages() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/messages?senderId=${currentUser.id}&receiverId=${id}`,
+                `${API_URL}/api/messages?senderId=${currentUser.id}&receiverId=${id}`,
                 {
                     method: "POST",
                     headers: {
@@ -157,7 +157,7 @@ function Messages() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/messages/${messageId}?userId=${currentUser.id}`,
+                `${API_URL}/api/messages/${messageId}?userId=${currentUser.id}`,
                 {
                     method: "DELETE"
                 }

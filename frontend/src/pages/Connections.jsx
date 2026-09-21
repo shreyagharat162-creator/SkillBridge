@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function Connections() {
 
@@ -26,11 +27,11 @@ function Connections() {
             try {
 
                 const receivedResponse = await fetch(
-                    `http://localhost:8080/api/requests/received/${currentUser.id}`
+                   `${API_URL}/api/requests/received/${currentUser.id}`
                 );
 
                 const sentResponse = await fetch(
-                    `http://localhost:8080/api/requests/sent/${currentUser.id}`
+                   `${API_URL}/api/requests/sent/${currentUser.id}`
                 );
 
                 if (!receivedResponse.ok || !sentResponse.ok) {

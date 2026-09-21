@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import API_URL from "../api";
 
 function Profile() {
 
@@ -17,7 +18,7 @@ function Profile() {
 
                 // Fetch student profile
                 const userResponse = await fetch(
-                    `http://localhost:8080/api/users/${id}`
+                    `${API_URL}/api/users/${id}`
                 );
 
                 if (userResponse.ok) {
@@ -35,7 +36,7 @@ function Profile() {
 
                 // Fetch student's uploaded skill posts
                 const postsResponse = await fetch(
-                    `http://localhost:8080/api/posts/user/${id}`
+                    `${API_URL}/api/posts/user/${id}`
                 );
 
                 if (postsResponse.ok) {
@@ -89,7 +90,7 @@ function Profile() {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/api/requests?senderId=${currentUser.id}&receiverId=${user.id}`,
+                `${API_URL}/api/requests?senderId=${currentUser.id}&receiverId=${user.id}`,
                 {
                     method: "POST"
                 }

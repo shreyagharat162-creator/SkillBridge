@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function UploadSkill() {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ function UploadSkill() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/posts?userId=${user.id}`,
+                `${API_URL}/api/posts?userId=${user.id}`,
                 {
                     method: "POST",
                     headers: {
@@ -49,13 +50,20 @@ function UploadSkill() {
                 setTimeout(() => {
                     navigate("/dashboard");
                 }, 1000);
-            } 
-             else {
-    const errorText = await response.text();
-    console.log("Upload failed:", response.status, errorText);
-    setMessage(`Failed to upload skill. Status: ${response.status}`);
-}
-           
+            } else {
+                const errorText = await response.text();
+
+                console.log(
+                    "Upload failed:",
+                    response.status,
+                    errorText
+                );
+
+                setMessage(
+                    `Failed to upload skill. Status: ${response.status}`
+                );
+            }
+
         } catch (error) {
             console.error("Error:", error);
             setMessage("Cannot connect to the server.");

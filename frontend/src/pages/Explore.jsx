@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../api";
 
 function Explore() {
     const navigate = useNavigate();
@@ -21,8 +22,8 @@ function Explore() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/users/search?skill=${encodeURIComponent(skill)}`
-            );
+    `${API_URL}/api/users/search?skill=${skill}`
+);
 
             if (response.ok) {
                 const data = await response.json();
@@ -42,7 +43,7 @@ function Explore() {
                     data.map(async (student) => {
                         try {
                             const postResponse = await fetch(
-                                `http://localhost:8080/api/posts/user/${student.id}`
+                                `${API_URL}/api/posts/user/${student.id}`
                             );
 
                             if (postResponse.ok) {

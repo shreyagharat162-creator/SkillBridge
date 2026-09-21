@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API_URL from "../api";
 
 function Requests() {
 
@@ -21,7 +22,7 @@ function Requests() {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/api/requests/received/${user.id}`
+                `${API_URL}/api/requests/received/${user.id}`
             );
 
             if (response.ok) {
@@ -56,7 +57,7 @@ function Requests() {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/api/requests/${requestId}/${action}`,
+                `${API_URL}/api/requests/${requestId}/${action}`,
                 {
                     method: "PUT"
                 }
@@ -103,7 +104,7 @@ function Requests() {
         try {
 
             const response = await fetch(
-                `http://localhost:8080/api/requests/${request.id}/contact`
+                `${API_URL}/api/requests/${request.id}/contact`
             );
 
             if (response.ok) {

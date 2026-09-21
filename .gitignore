@@ -1,0 +1,23 @@
+# Node.js dependencies
+node_modules/
+
+# Frontend build
+frontend/dist/
+
+# Backend build
+backend/target/
+
+# Environment files
+.env
+.env.*
+
+# IDE files
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local database configuration
+backend/src/main/resources/application.properties

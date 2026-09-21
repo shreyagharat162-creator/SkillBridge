@@ -1,0 +1,2469 @@
+/* ==============================
+   GLOBAL STYLES
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+}
+
+.app {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* ==============================
+   NAVBAR
+================================= */
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 55px;
+    background:rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-logo a {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+    color: #2563eb;
+    letter-spacing: -0.5px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+    color: #2563eb;
+}
+
+
+/* Login + Logout */
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar-logout {
+    border: none;
+    background: none;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.navbar-logout:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   HERO SECTION
+================================= */
+
+.hero-section {
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(239, 246, 255, 0.78),
+            rgba(255, 255, 255, 0.86)
+        ),
+        url("/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center 10%;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 62px;
+    line-height: 1.1;
+    margin-bottom: 22px;
+    color: #172554;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.hero-content p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #475569;
+}
+
+
+/* ==============================
+   HERO BUTTONS
+================================= */
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.primary-button {
+    background: #2563eb;
+    color: white;
+    border: 2px solid #2563eb;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+.primary-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.secondary-button:hover {
+    background: #eff6ff;
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   FEATURES
+================================= */
+
+.features-section {
+    padding: 80px 50px;
+    text-align: center;
+    background: white;
+}
+
+.features-section h2 {
+    font-size: 36px;
+    color: #172554;
+    margin-bottom: 45px;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.feature-card {
+    flex: 1;
+    padding: 35px 30px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+    transition: all 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.11);
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    color: #2563eb;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   FORM PAGES
+================================= */
+
+.form-page {
+    min-height: calc(100vh - 78px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(219, 234, 254, 0.55),
+            rgba(239, 246, 255, 0.78)
+        ),
+        url("/login-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.96);
+
+    padding: 40px;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+
+    text-align: center;
+}
+
+.form-container h1 {
+    margin-bottom: 10px;
+    color: #1e3a8a;
+    font-size: 32px;
+}
+
+.form-subtitle {
+    margin-bottom: 30px;
+    color: #64748b;
+    font-size: 16px;
+}
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   DASHBOARD / CONTENT PAGES
+================================= */
+
+.dashboard-page {
+    min-height: calc(100vh - 78px);
+    padding: 60px 20px;
+    background: #f8fafc;
+}
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.dashboard-container > h1 {
+    color: #172554;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.dashboard-subtitle {
+    margin-bottom: 35px;
+    color: #64748b;
+    font-size: 17px;
+}
+
+.dashboard-card {
+    padding: 28px;
+    margin-bottom: 22px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    transition: box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+.dashboard-card h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #1e3a8a;
+}
+
+.dashboard-card h3 {
+    color: #2563eb;
+}
+
+.dashboard-card p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #475569;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    .navbar-links {
+        gap: 15px;
+    }
+
+    .navbar-links a {
+        font-size: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 20px;
+    }
+
+    .navbar-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .feature-container {
+        flex-direction: column;
+    }
+
+    .features-section {
+        padding: 60px 20px;
+    }
+
+    .hero-section {
+        padding: 70px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .form-container {
+        padding: 30px 22px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .navbar-logo a {
+        font-size: 26px;
+    }
+
+    .navbar-links {
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 13px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+    .dashboard-container > h1 {
+        font-size: 30px;
+    }
+}
+
+/* ==============================
+   EXPLORE PAGE
+================================= */
+
+.explore-page {
+    min-height: calc(100vh - 78px);
+    background: #f8fafc;
+}
+
+
+/* ==============================
+   EXPLORE HERO
+================================= */
+
+.explore-hero {
+    height: 590px;
+
+    background:
+        linear-gradient(
+            rgba(239, 246, 255, 0.78),
+            rgba(255, 255, 255, 0.88)
+        ),
+        url("/explore-bg.jpg");
+
+    background-size: cover;
+    background-position: center 0% ;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.explore-overlay {
+    width: 100%;
+    padding: 70px 20px;
+}
+
+.explore-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.explore-content h1 {
+    margin: 0 0 15px;
+
+    font-size: 52px;
+    color: #172554;
+    font-weight: 800;
+}
+
+.explore-content p {
+    margin: 0 auto 30px;
+
+    font-size: 19px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   SEARCH
+================================= */
+
+.explore-search {
+    max-width: 700px;
+    margin: auto;
+
+    display: flex;
+    gap: 12px;
+
+    background: white;
+    padding: 10px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+.explore-search input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    color: #1e293b;
+}
+
+.explore-search button {
+    border: none;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 0 25px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.explore-search button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ==============================
+   POPULAR SKILLS
+================================= */
+
+.popular-skills {
+    text-align: center;
+
+    padding: 55px 20px 40px;
+
+    background: white;
+}
+
+.popular-skills h2 {
+    margin: 0 0 8px;
+
+    font-size: 32px;
+
+    color: #172554;
+}
+
+.popular-skills p {
+    color: #64748b;
+
+    margin-bottom: 25px;
+}
+
+.skill-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.skill-buttons button {
+    padding: 11px 22px;
+
+    border-radius: 25px;
+
+    border: 1px solid #bfdbfe;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.skill-buttons button:hover {
+    background: #2563eb;
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   MESSAGE
+================================= */
+
+.explore-message {
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    padding: 18px;
+
+    text-align: center;
+
+    background: #eff6ff;
+
+    color: #1e40af;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+}
+
+
+/* ==============================
+   STUDENTS
+================================= */
+
+.students-section {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 45px 20px 80px;
+}
+
+.students-section > h2 {
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    font-size: 32px;
+
+    color: #172554;
+}
+
+.students-subtitle {
+    text-align: center;
+
+    color: #64748b;
+
+    margin-bottom: 35px;
+}
+
+.students-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* ==============================
+   STUDENT CARD
+================================= */
+
+.student-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 7px 22px rgba(15, 23, 42, 0.07);
+
+    transition: 0.25s;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.11);
+}
+
+.student-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    font-size: 30px;
+}
+
+.student-card h3 {
+    margin: 0 0 18px;
+
+    color: #1e3a8a;
+
+    font-size: 23px;
+}
+
+.student-card > p {
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   UPLOADED POSTS
+================================= */
+
+.student-posts {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.student-posts > h4 {
+    color: #2563eb;
+
+    margin-bottom: 15px;
+}
+
+.skill-post {
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+}
+
+.skill-post h4 {
+    margin-top: 0;
+
+    color: #1e3a8a;
+}
+
+.skill-post p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.no-posts {
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   PROFILE BUTTON
+================================= */
+
+.profile-button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.profile-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   EXPLORE RESPONSIVE
+================================= */
+
+@media (max-width: 700px) {
+
+    .explore-content h1 {
+        font-size: 40px;
+    }
+
+    .explore-content p {
+        font-size: 17px;
+    }
+
+    .explore-search {
+        flex-direction: column;
+    }
+
+    .explore-search button {
+        padding: 13px;
+    }
+
+    .students-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   UPLOAD SKILL PAGE
+================================= */
+
+.upload-page {
+    min-height: calc(100vh - 78px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(239, 246, 255, 0.72),
+            rgba(255, 255, 255, 0.88)
+        ),
+        url("/upload-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ==============================
+   UPLOAD FORM
+================================= */
+
+.upload-container {
+    width: 100%;
+    max-width: 620px;
+
+    padding: 42px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 18px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.12);
+}
+
+.upload-container h1 {
+    text-align: center;
+
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    color: #172554;
+
+    font-size: 36px;
+}
+
+.upload-container .form-subtitle {
+    text-align: center;
+
+    margin-bottom: 32px;
+
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   UPLOAD MESSAGE
+================================= */
+
+.upload-container > p:last-child {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 700px) {
+
+    .upload-page {
+        padding: 40px 20px;
+    }
+
+    .upload-container {
+        padding: 30px 22px;
+    }
+
+    .upload-container h1 {
+        font-size: 30px;
+    }
+}
+
+/* ==============================
+   REQUESTS PAGE
+================================= */
+
+.requests-page {
+    min-height: calc(100vh - 78px);
+    background: #f8fafc;
+}
+
+
+/* ==============================
+   REQUESTS HERO
+================================= */
+
+.requests-hero {
+    height: 583px;
+
+    background:
+    linear-gradient(
+        rgba(184, 208, 239, 0.65),
+        rgba(247, 239, 239, 0.78)
+    ),
+    url("/requests-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.requests-hero-overlay {
+    width: 100%;
+    padding: 60px 20px;
+}
+
+.requests-header {
+    max-width: 700px;
+    margin: auto;
+}
+
+.requests-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.requests-header h1 {
+    margin: 0 0 12px;
+
+    font-size: 48px;
+
+    color: #172554;
+
+    font-weight: 800;
+}
+
+.requests-header p {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   REQUEST CONTENT
+================================= */
+
+.requests-content {
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 55px 20px 80px;
+}
+
+
+/* ==============================
+   MESSAGE
+================================= */
+
+.requests-message {
+    padding: 16px 20px;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    background: #eff6ff;
+
+    color: #1e40af;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+}
+
+
+/* ==============================
+   EMPTY REQUESTS
+================================= */
+
+.empty-requests {
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.07);
+}
+
+.empty-icon {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.empty-requests h2 {
+    margin-bottom: 10px;
+
+    color: #172554;
+}
+
+.empty-requests p {
+    color: #64748b;
+}
+
+
+/* ==============================
+   REQUEST LIST
+================================= */
+
+.requests-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* ==============================
+   REQUEST CARD
+================================= */
+
+.request-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 7px 22px rgba(15, 23, 42, 0.07);
+
+    transition: 0.2s;
+}
+
+.request-card:hover {
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.10);
+}
+
+
+/* ==============================
+   STUDENT
+================================= */
+
+.request-student {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.student-avatar {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    font-size: 32px;
+}
+
+.request-student h2 {
+    margin: 0 0 5px;
+
+    color: #1e3a8a;
+
+    font-size: 23px;
+}
+
+.request-student p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+
+/* ==============================
+   STATUS
+================================= */
+
+.request-status {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    margin-bottom: 22px;
+
+    background: #f8fafc;
+
+    border-radius: 9px;
+}
+
+.request-status span {
+    color: #64748b;
+
+    font-weight: 600;
+}
+
+.status-pending {
+    color: #d97706;
+}
+
+.status-accepted {
+    color: #16a34a;
+}
+
+.status-rejected {
+    color: #dc2626;
+}
+
+
+/* ==============================
+   ACTION BUTTONS
+================================= */
+
+.request-actions {
+    display: flex;
+
+    gap: 12px;
+}
+
+.accept-button,
+.reject-button,
+.connect-button {
+    flex: 1;
+
+    padding: 13px 20px;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.accept-button {
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+}
+
+.accept-button:hover {
+    background: #1d4ed8;
+}
+
+.reject-button {
+    border: 1px solid #fecaca;
+
+    background: #fff;
+
+    color: #dc2626;
+}
+
+.reject-button:hover {
+    background: #fef2f2;
+}
+
+
+/* ==============================
+   ACCEPTED
+================================= */
+
+.accepted-section {
+    padding-top: 5px;
+}
+
+.accepted-text {
+    margin-bottom: 18px;
+
+    color: #15803d;
+
+    font-weight: 600;
+}
+
+.connect-button {
+    width: 100%;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+}
+
+.connect-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   CONTACT INFORMATION
+================================= */
+
+.contact-box {
+    margin-top: 20px;
+
+    padding: 22px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 12px;
+}
+
+.contact-box h3 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    color: #1e3a8a;
+}
+
+.contact-box p {
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   LOADING
+================================= */
+
+.loading-contact {
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+
+/* ==============================
+   REJECTED
+================================= */
+
+.rejected-section {
+    padding: 15px;
+
+    background: #fef2f2;
+
+    border-radius: 9px;
+
+    color: #b91c1c;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+    .requests-header h1 {
+        font-size: 36px;
+    }
+
+    .requests-header p {
+        font-size: 16px;
+    }
+
+    .request-card {
+        padding: 22px;
+    }
+
+    .request-actions {
+        flex-direction: column;
+    }
+
+    .request-status {
+        align-items: flex-start;
+
+        gap: 8px;
+
+        flex-direction: column;
+    }
+}
+
+/* ==============================
+   ABOUT PAGE
+================================= */
+
+.about-page {
+    min-height: calc(100vh - 78px);
+    background: #f8fafc;
+}
+
+
+/* ==============================
+   ABOUT HERO
+================================= */
+
+.about-hero {
+    min-height: 330px;
+
+    background:
+        linear-gradient(
+            rgba(208, 225, 247, 0.78),
+            rgba(252, 251, 251, 0.9)
+        ),
+        url("/about-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.about-hero-overlay {
+    width: 100%;
+    padding: 60px 20px;
+}
+
+.about-header {
+    max-width: 750px;
+    margin: auto;
+}
+
+.about-icon {
+    font-size: 46px;
+    margin-bottom: 10px;
+}
+
+.about-header h1 {
+    margin: 0 0 12px;
+
+    font-size: 48px;
+
+    color: #172554;
+
+    font-weight: 800;
+}
+
+.about-header p {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   ABOUT CONTENT
+================================= */
+
+.about-content {
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 55px 20px 80px;
+}
+
+
+/* ==============================
+   ABOUT CARDS
+================================= */
+
+.about-card {
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 7px 22px rgba(15, 23, 42, 0.06);
+}
+
+.about-card h2 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    color: #1e3a8a;
+
+    font-size: 25px;
+}
+
+.about-card > p {
+    color: #475569;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+
+    margin-bottom: 0;
+}
+
+
+/* ==============================
+   HOW IT WORKS
+================================= */
+
+.steps p {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin: 14px 0;
+
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+.steps span {
+    min-width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-weight: 700;
+}
+
+
+/* ==============================
+   FEATURE LIST
+================================= */
+
+.feature-list p {
+    margin: 13px 0;
+
+    color: #475569;
+
+    line-height: 1.5;
+}
+
+
+/* ==============================
+   TECHNOLOGIES
+================================= */
+
+.technology-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.technology-item:last-child {
+    border-bottom: none;
+}
+
+.technology-item strong {
+    color: #2563eb;
+
+    min-width: 120px;
+}
+
+.technology-item span {
+    color: #475569;
+
+    text-align: right;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+    .about-header h1 {
+        font-size: 36px;
+    }
+
+    .about-header p {
+        font-size: 16px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+
+    .technology-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+    }
+
+    .technology-item span {
+        text-align: left;
+    }
+}
+
+/* ==============================
+   CONTACT PAGE
+================================= */
+
+.contact-page {
+    min-height: calc(100vh - 78px);
+    background: #f8fafc;
+}
+
+
+/* ==============================
+   CONTACT HERO
+================================= */
+
+.contact-hero {
+    min-height: 190px;
+
+    background:
+        linear-gradient(
+            rgba(195, 218, 248, 0.78),
+            rgba(251, 251, 251, 0.9)
+        ),
+        url("/contact-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.contact-hero-overlay {
+    width: 100%;
+    padding: 60px 20px;
+}
+
+.contact-header {
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact-icon {
+    font-size: 46px;
+    margin-bottom: 10px;
+}
+
+.contact-header h1 {
+    margin: 0 0 12px;
+
+    font-size: 48px;
+
+    color: #172554;
+
+    font-weight: 800;
+}
+
+.contact-header p {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #475569;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   CONTACT CONTENT
+================================= */
+
+.contact-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 55px 20px 80px;
+}
+
+.contact-container {
+    padding: 40px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+.contact-container h2 {
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    color: #1e3a8a;
+
+    font-size: 28px;
+
+    text-align: center;
+}
+
+.contact-description {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   CONTACT BUTTON
+================================= */
+
+.contact-submit {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.contact-submit:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   SUCCESS MESSAGE
+================================= */
+
+.contact-success {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 9px;
+
+    color: #15803d;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+    .contact-header h1 {
+        font-size: 36px;
+    }
+
+    .contact-header p {
+        font-size: 16px;
+    }
+
+    .contact-container {
+        padding: 25px 22px;
+    }
+}
+
+/* =========================
+   PROFILE SKILL POSTS
+========================= */
+
+.profile-skill-text {
+    font-size: 20px;
+    color: #334155;
+    line-height: 1.6;
+}
+
+
+/* Uploaded posts container */
+
+.profile-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+
+/* Individual uploaded post */
+
+.profile-post {
+    background: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-left: 5px solid #2563eb;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+
+/* Post title */
+
+.profile-post h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #1e3a8a;
+    font-size: 22px;
+}
+
+
+/* Skill name */
+
+.post-skill {
+    margin-bottom: 10px;
+    color: #334155;
+    font-size: 16px;
+}
+
+
+/* Description */
+
+.post-description {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* No posts message */
+
+.no-profile-posts {
+    color: #64748b;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+
+/* Connection message */
+
+.profile-message {
+    margin-top: 15px;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+/* =========================
+   MY CONNECTIONS PAGE
+========================= */
+
+.connections-page {
+    min-height: calc(100vh - 78px);
+    background:
+        linear-gradient(
+            rgba(239, 246, 255, 0.88),
+            rgba(248, 250, 252, 0.95)
+        ),
+        url("/requests-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* =========================
+   CONNECTIONS HERO
+========================= */
+
+.connections-hero {
+    min-height: 300px;
+    background:
+        linear-gradient(
+            rgba(186, 200, 245, 0.78),
+            rgba(218, 226, 247, 0.72)
+        ),
+        url("/requests-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.connections-hero-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connections-header {
+    text-align: center;
+    color: rgb(10, 1, 1);
+    padding: 40px 20px;
+}
+
+.connections-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.connections-header h1 {
+    font-size: 42px;
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+.connections-header p {
+    font-size: 19px;
+    margin: 0;
+    opacity: 0.95;
+}
+
+
+/* =========================
+   CONNECTIONS CONTENT
+========================= */
+
+.connections-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 25px 70px;
+}
+
+
+/* Message */
+
+.connections-message {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+
+/* =========================
+   EMPTY CONNECTIONS
+========================= */
+
+.empty-connections {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 50px 35px;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+    text-align: center;
+    border: 1px solid #dbeafe;
+}
+
+.empty-connections-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.empty-connections h2 {
+    color: #1e3a8a;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.empty-connections p {
+    color: #64748b;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.empty-connections .form-button {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   CONNECTION CARDS
+========================= */
+
+.connections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.connection-card {
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid #dbeafe;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.09);
+    transition: 0.3s ease;
+}
+
+.connection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+}
+
+
+/* Student avatar */
+
+.connection-avatar {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+}
+
+
+/* Student name */
+
+.connection-card h2 {
+    color: #1e3a8a;
+    margin: 10px 0 8px;
+    font-size: 24px;
+}
+
+
+/* Connected status */
+
+.connection-status {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+
+/* Buttons */
+
+.connection-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.view-profile-button,
+.message-button {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.view-profile-button {
+    background: #e0ecff;
+    color: #1d4ed8;
+}
+
+.view-profile-button:hover {
+    background: #bfdbfe;
+}
+
+.message-button {
+    background: #2563eb;
+    color: white;
+}
+
+.message-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    .connections-header h1 {
+        font-size: 32px;
+    }
+
+    .connections-header p {
+        font-size: 16px;
+    }
+
+    .connections-content {
+        padding: 35px 15px 50px;
+    }
+
+    .connections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .connection-actions {
+        flex-direction: column;
+    }
+
+    .empty-connections {
+        padding: 40px 20px;
+    }
+}
+
+/* ============================= */
+/* MESSAGES / CHAT PAGE */
+/* ============================= */
+
+.messages-page {
+    min-height: calc(100vh - 78px);
+    background: #eef5ff;
+    padding: 35px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messages-container {
+    width: 100%;
+    max-width: 850px;
+    height: 650px;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat header */
+
+.messages-header {
+    background: #2563eb;
+    color: white;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.messages-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.messages-header p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.back-button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #2563eb;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #e0ecff;
+}
+
+/* Messages area */
+
+.messages-list {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    background: #f5f9ff;
+}
+
+.message-row {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.sent-row {
+    justify-content: flex-end;
+}
+
+.received-row {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 65%;
+    padding: 10px 14px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+
+.message-bubble p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.message-bubble.sent {
+    background: #2563eb;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message-bubble.received {
+    background: white;
+    color: #1f2937;
+    border: 1px solid #dbe5f1;
+    border-bottom-left-radius: 4px;
+}
+
+.message-time {
+    display: block;
+    margin-top: 5px;
+    font-size: 10px;
+    text-align: right;
+    opacity: 0.7;
+}
+
+/* Empty chat */
+
+.empty-chat {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #64748b;
+    text-align: center;
+}
+
+.empty-chat p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.empty-chat span {
+    font-size: 14px;
+}
+
+/* Error / information message */
+
+.chat-message {
+    margin: 0;
+    padding: 10px 20px;
+    text-align: center;
+    color: #dc2626;
+    background: #fff1f2;
+    font-size: 14px;
+}
+
+/* Message input */
+
+.message-input-area {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+}
+
+.message-input-area input {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 25px;
+    outline: none;
+    font-size: 15px;
+}
+
+.message-input-area input:focus {
+    border-color: #2563eb;
+}
+
+.message-input-area button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.message-input-area button:hover {
+    background: #1d4ed8;
+}
+
+/* Loading */
+
+.messages-loading {
+    min-height: calc(100vh - 78px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .messages-page {
+        padding: 15px;
+    }
+
+    .messages-container {
+        height: calc(100vh - 110px);
+    }
+
+    .message-bubble {
+        max-width: 80%;
+    }
+
+    .message-input-area button {
+        padding: 12px 18px;
+    }
+}
+
+/* Delete message button */
+
+.delete-message-button {
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px 4px;
+    opacity: 0.7;
+}
+
+.delete-message-button:hover {
+    opacity: 1;
+}

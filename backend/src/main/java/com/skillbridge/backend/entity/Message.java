@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+import java.time.ZoneId;
 @Entity
 @Table(name = "messages")
 public class Message {
@@ -39,7 +39,7 @@ public class Message {
         this.sender = sender;
         this.receiver = receiver;
         this.content = content;
-        this.timestamp = LocalDateTime.now();
+        this.timestamp = LocalDateTime.now(ZoneId.of("Asia/Kolkata"));
     }
 
     public Long getId() {

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import API_URL from "../api";
 
 function Connections() {
-
     const navigate = useNavigate();
 
     const [connections, setConnections] = useState([]);
@@ -11,9 +10,7 @@ function Connections() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         const loadConnections = async () => {
-
             const savedUser = localStorage.getItem("user");
 
             if (!savedUser) {
@@ -25,82 +22,90 @@ function Connections() {
             const currentUser = JSON.parse(savedUser);
 
             try {
-
                 const receivedResponse = await fetch(
-                   `${API_URL}/api/requests/received/${currentUser.id}`
+                    `${API_URL}/api/requests/received/${currentUser.id}`
                 );
 
                 const sentResponse = await fetch(
-                   `${API_URL}/api/requests/sent/${currentUser.id}`
+                    `${API_URL}/api/requests/sent/${currentUser.id}`
                 );
 
                 if (!receivedResponse.ok || !sentResponse.ok) {
                     throw new Error("Unable to load connections.");
                 }
 
-                const receivedRequests =
-                    await receivedResponse.json();
-
-                const sentRequests =
-                    await sentResponse.json();
+                const receivedRequests = await receivedResponse.json();
+                const sentRequests = await sentResponse.json();
 
                 const acceptedConnections = [];
 
-                // Requests received by current user
+                // Connections where someone sent a request to current user
                 receivedRequests
-                    .filter(
-                        (request) =>
-                            request.status === "ACCEPTED"
-                    )
+                    .filter((request) => request.status === "ACCEPTED")
                     .forEach((request) => {
-
                         if (request.senderId) {
-
                             acceptedConnections.push({
                                 id: request.senderId,
                                 name: request.senderName
                             });
-
                         }
-
                     });
 
-
-                // Requests sent by current user
+                // Connections where current user sent the request
                 sentRequests
-                    .filter(
-                        (request) =>
-                            request.status === "ACCEPTED"
-                    )
+                    .filter((request) => request.status === "ACCEPTED")
                     .forEach((request) => {
-
                         if (request.receiverId) {
-
                             acceptedConnections.push({
                                 id: request.receiverId,
                                 name: request.receiverName
                             });
-
                         }
-
                     });
 
-
                 // Remove duplicate connections
-                const uniqueConnections =
-                    acceptedConnections.filter(
-                        (connection, index, self) =>
-                            index ===
-                            self.findIndex(
-                                (item) =>
-                                    item.id === connection.id
-                            )
-                    );
+                const uniqueConnections = acceptedConnections.filter(
+                    (connection, index, self) =>
+                        index ===
+                        self.findIndex(
+                            (item) => item.id === connection.id
+                        )
+                );
 
-                setConnections(uniqueConnections);
+                // Get profile image directly from user API
+                const connectionsWithImages = await Promise.all(
+                    uniqueConnections.map(async (connection) => {
+                        try {
+                            const userResponse = await fetch(
+                                `${API_URL}/api/users/${connection.id}`
+                            );
+
+                            if (userResponse.ok) {
+                                const user = await userResponse.json();
+
+                                return {
+                                    ...connection,
+                                    profileImageUrl:
+                                        user.profileImageUrl || null
+                                };
+                            }
+                        } catch (error) {
+                            console.error(
+                                "Error loading connection profile:",
+                                error
+                            );
+                        }
+
+                        return {
+                            ...connection,
+                            profileImageUrl: null
+                        };
+                    })
+                );
+
+                setConnections(connectionsWithImages);
 
             } catch (error) {
-
                 console.error(
                     "Error loading connections:",
                     error
@@ -109,24 +114,17 @@ function Connections() {
                 setMessage(
                     "Cannot connect to the server."
                 );
-
             } finally {
-
                 setLoading(false);
-
             }
         };
 
         loadConnections();
-
     }, []);
 
-
     if (loading) {
-
         return (
             <main className="connections-page">
-
                 <section className="connections-content">
 
                     <div className="empty-connections">
@@ -146,15 +144,11 @@ function Connections() {
                     </div>
 
                 </section>
-
             </main>
         );
-
     }
 
-
     return (
-
         <main className="connections-page">
 
             <section className="connections-hero">
@@ -181,7 +175,6 @@ function Connections() {
 
             </section>
 
-
             <section className="connections-content">
 
                 {message && (
@@ -189,7 +182,6 @@ function Connections() {
                         {message}
                     </div>
                 )}
-
 
                 {connections.length === 0 ? (
 
@@ -209,7 +201,9 @@ function Connections() {
 
                         <button
                             className="form-button"
-                            onClick={() => navigate("/explore")}
+                            onClick={() =>
+                                navigate("/explore")
+                            }
                         >
                             Explore Skills
                         </button>
@@ -227,9 +221,24 @@ function Connections() {
                                 key={connection.id}
                             >
 
-                                <div className="connection-avatar">
-                                    👨‍🎓
-                                </div>
+                                {/* Profile Image */}
+                                {connection.profileImageUrl ? (
+
+                                    <img
+                                        src={
+                                            connection.profileImageUrl
+                                        }
+                                        alt={connection.name}
+                                        className="connection-profile-image"
+                                    />
+
+                                ) : (
+
+                                    <div className="connection-avatar">
+                                        👨‍🎓
+                                    </div>
+
+                                )}
 
                                 <h2>
                                     {connection.name}
@@ -276,7 +285,6 @@ function Connections() {
             </section>
 
         </main>
-
     );
 }
 

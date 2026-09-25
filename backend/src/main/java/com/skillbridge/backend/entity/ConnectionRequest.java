@@ -69,6 +69,11 @@ public class ConnectionRequest {
         return sender != null ? sender.getFullName() : "";
     }
 
+    // Sender profile image for frontend
+    public String getSenderProfileImageUrl() {
+        return sender != null ? sender.getProfileImageUrl() : null;
+    }
+
     // Receiver information for frontend
     public Long getReceiverId() {
         return receiver != null ? receiver.getId() : null;
@@ -76,5 +81,10 @@ public class ConnectionRequest {
 
     public String getReceiverName() {
         return receiver != null ? receiver.getFullName() : "";
+    }
+
+    // Receiver profile image for frontend
+    public String getReceiverProfileImageUrl() {
+        return receiver != null ? receiver.getProfileImageUrl() : null;
     }
 }

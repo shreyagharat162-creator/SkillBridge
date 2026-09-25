@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import API_URL from "../api";
 
 function Requests() {
-
     const [requests, setRequests] = useState([]);
     const [message, setMessage] = useState("");
     const [contactInfo, setContactInfo] = useState({});
     const [loadingContact, setLoadingContact] = useState(null);
 
     const loadRequests = async () => {
-
         const savedUser = localStorage.getItem("user");
 
         if (!savedUser) {
@@ -20,28 +18,54 @@ function Requests() {
         const user = JSON.parse(savedUser);
 
         try {
-
             const response = await fetch(
                 `${API_URL}/api/requests/received/${user.id}`
             );
 
             if (response.ok) {
-
                 const data = await response.json();
 
-                setRequests(data);
+                // Get profile image directly from the user API
+                const requestsWithImages = await Promise.all(
+                    data.map(async (request) => {
+                        try {
+                            if (request.senderId) {
+                                const userResponse = await fetch(
+                                    `${API_URL}/api/users/${request.senderId}`
+                                );
 
+                                if (userResponse.ok) {
+                                    const sender = await userResponse.json();
+
+                                    return {
+                                        ...request,
+                                        senderProfileImageUrl:
+                                            sender.profileImageUrl || null
+                                    };
+                                }
+                            }
+                        } catch (error) {
+                            console.error(
+                                "Error loading sender profile:",
+                                error
+                            );
+                        }
+
+                        return {
+                            ...request,
+                            senderProfileImageUrl: null
+                        };
+                    })
+                );
+
+                setRequests(requestsWithImages);
             } else {
-
                 setMessage(
                     "Unable to load connection requests."
                 );
             }
-
         } catch (error) {
-
             console.error("Error:", error);
-
             setMessage(
                 "Cannot connect to the server."
             );
@@ -53,9 +77,7 @@ function Requests() {
     }, []);
 
     const updateRequest = async (requestId, action) => {
-
         try {
-
             const response = await fetch(
                 `${API_URL}/api/requests/${requestId}/${action}`,
                 {
@@ -64,33 +86,24 @@ function Requests() {
             );
 
             if (response.ok) {
-
                 if (action === "accept") {
-
                     setMessage(
                         "Connection request accepted!"
                     );
-
                 } else {
-
                     setMessage(
                         "Connection request rejected!"
                     );
                 }
 
                 loadRequests();
-
             } else {
-
                 setMessage(
                     "Unable to update the request."
                 );
             }
-
         } catch (error) {
-
             console.error("Error:", error);
-
             setMessage(
                 "Cannot connect to the server."
             );
@@ -98,55 +111,41 @@ function Requests() {
     };
 
     const handleConnect = async (request) => {
-
         setLoadingContact(request.id);
 
         try {
-
             const response = await fetch(
                 `${API_URL}/api/requests/${request.id}/contact`
             );
 
             if (response.ok) {
-
                 const data = await response.json();
 
                 setContactInfo({
                     ...contactInfo,
                     [request.id]: data
                 });
-
             } else {
-
                 setMessage(
                     "Contact information is available only after the request is accepted."
                 );
             }
-
         } catch (error) {
-
             console.error("Error:", error);
-
             setMessage(
                 "Cannot connect to the server."
             );
-
         } finally {
-
             setLoadingContact(null);
         }
     };
 
     return (
-
         <main className="requests-page">
 
             {/* Header */}
-
             <section className="requests-hero">
-
                 <div className="requests-hero-overlay">
-
                     <div className="requests-header">
 
                         <div className="requests-icon">
@@ -163,14 +162,10 @@ function Requests() {
                         </p>
 
                     </div>
-
                 </div>
-
             </section>
 
-
             {/* Requests Content */}
-
             <section className="requests-content">
 
                 {message && (
@@ -178,7 +173,6 @@ function Requests() {
                         {message}
                     </div>
                 )}
-
 
                 {requests.length === 0 ? (
 
@@ -211,12 +205,25 @@ function Requests() {
                             >
 
                                 {/* Student Header */}
-
                                 <div className="request-student">
 
-                                    <div className="student-avatar">
-                                        👨‍🎓
-                                    </div>
+                                    {request.senderProfileImageUrl ? (
+
+                                        <img
+                                            src={
+                                                request.senderProfileImageUrl
+                                            }
+                                            alt={request.senderName}
+                                            className="request-profile-image"
+                                        />
+
+                                    ) : (
+
+                                        <div className="student-avatar">
+                                            👨‍🎓
+                                        </div>
+
+                                    )}
 
                                     <div>
 
@@ -233,9 +240,7 @@ function Requests() {
 
                                 </div>
 
-
                                 {/* Status */}
-
                                 <div className="request-status">
 
                                     <span>
@@ -250,9 +255,7 @@ function Requests() {
 
                                 </div>
 
-
                                 {/* Pending */}
-
                                 {request.status === "PENDING" && (
 
                                     <div className="request-actions">
@@ -285,9 +288,7 @@ function Requests() {
 
                                 )}
 
-
                                 {/* Accepted */}
-
                                 {request.status === "ACCEPTED" && (
 
                                     <div className="accepted-section">
@@ -307,7 +308,6 @@ function Requests() {
                                             {request.senderName}
                                         </button>
 
-
                                         {loadingContact === request.id && (
 
                                             <p className="loading-contact">
@@ -316,7 +316,6 @@ function Requests() {
                                             </p>
 
                                         )}
-
 
                                         {contactInfo[request.id] && (
 
@@ -336,7 +335,6 @@ function Requests() {
                                                         ].email
                                                     }
                                                 </p>
-
 
                                                 {contactInfo[
                                                     request.id
@@ -363,9 +361,7 @@ function Requests() {
 
                                 )}
 
-
                                 {/* Rejected */}
-
                                 {request.status === "REJECTED" && (
 
                                     <div className="rejected-section">

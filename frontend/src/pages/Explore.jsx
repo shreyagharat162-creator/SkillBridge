@@ -22,7 +22,7 @@ function Explore() {
 
         try {
             const response = await fetch(
-    `${API_URL}/api/users/search?skill=${skill}`
+    `${API_URL}/api/users/search?skill=${encodeURIComponent(skill.trim())}`
 );
 
             if (response.ok) {
@@ -228,9 +228,17 @@ function Explore() {
                                 key={student.id}
                             >
 
-                                <div className="student-icon">
-                                    👨‍🎓
-                                </div>
+                               {student.profileImageUrl ? (
+    <img
+        src={student.profileImageUrl}
+        alt={student.fullName}
+        className="student-profile-image"
+    />
+) : (
+    <div className="student-icon">
+        👨‍🎓
+    </div>
+)}
 
                                 <h3>
                                     {student.fullName}

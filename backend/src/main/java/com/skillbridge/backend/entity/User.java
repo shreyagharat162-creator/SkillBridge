@@ -23,6 +23,10 @@ public class User {
 
     private String skillsToLearn;
 
+    // Profile image stored as large text
+    @Lob
+    private String profileImageUrl;
+
     // Default constructor
     public User() {
     }
@@ -101,5 +105,14 @@ public class User {
 
     public void setSkillsToLearn(String skillsToLearn) {
         this.skillsToLearn = skillsToLearn;
+    }
+
+    // Getter and Setter for profileImageUrl
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 }
